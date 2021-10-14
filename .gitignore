@@ -108,4 +108,3 @@ ENV/
 *.cb2
 *.fdb_latexmk
 *.synctex.gz
-*.tex
