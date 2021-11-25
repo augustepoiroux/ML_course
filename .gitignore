@@ -108,3 +108,7 @@ ENV/
 *.cb2
 *.fdb_latexmk
 *.synctex.gz
+
+
+# Exercises data
+labs/ex10/data/
