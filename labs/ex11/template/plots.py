@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """Some plot functions."""
-import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
+import numpy as np
 
 from helper import build_distance_matrix
 
@@ -25,26 +24,34 @@ def plot_cluster(data, mu, colors, ax):
             data_of_kth_cluster[:, 0],
             data_of_kth_cluster[:, 1],
             # works for clusters more than 3
-            s=40, c=colors[k_th % len(colors)])
+            s=40,
+            c=colors[k_th % len(colors)],
+        )
     ax.grid()
     ax.set_xlabel("x")
     ax.set_ylabel("y")
-    
 
 
 def plot(data, mu, mu_old, out_dir):
     """plot."""
-    colors = ['red', 'blue', 'black', 'green', 'yellow', 'purple']
+    colors = ["red", "blue", "black", "green", "yellow", "purple"]
     fig = plt.figure()
     ax1 = fig.add_subplot(1, 2, 1)
     plot_cluster(data, mu_old, colors, ax1)
-    ax1.scatter(mu_old[:, 0], mu_old[:, 1],
-                facecolors='y', edgecolors='y', s=120, marker = '^')
+    ax1.scatter(
+        mu_old[:, 0],
+        mu_old[:, 1],
+        facecolors="y",
+        edgecolors="y",
+        s=120,
+        marker="^",
+    )
 
     ax2 = fig.add_subplot(1, 2, 2)
     plot_cluster(data, mu, colors, ax2)
-    ax2.scatter(mu[:, 0], mu[:, 1],
-                facecolors='y', edgecolors='y', s=120, marker = '^')
+    ax2.scatter(
+        mu[:, 0], mu[:, 1], facecolors="y", edgecolors="y", s=120, marker="^"
+    )
 
     # matplotlib.rc('xtick', labelsize=5)
     # matplotlib.rc('ytick', labelsize=5)
@@ -62,13 +69,13 @@ def plot_image_compression(original_image, image, assignments, mu, k):
 
     # visualization
     image_reconstruct = mu[assignments].reshape(original_image.shape)
-    
+
     ax1 = fig.add_subplot(1, 2, 1)
-    ax1.imshow(original_image, cmap='Greys_r')
+    ax1.imshow(original_image, cmap="Greys_r")
     ax2 = fig.add_subplot(1, 2, 2)
-    ax2.imshow(image_reconstruct, cmap='Greys_r')
-#     plt.draw()
-#     plt.pause(0.1)
+    ax2.imshow(image_reconstruct, cmap="Greys_r")
+    #     plt.draw()
+    #     plt.pause(0.1)
 
     # ax3 = fig.add_subplot(2, 1, 2)
 
